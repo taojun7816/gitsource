@@ -1,0 +1,74 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"9 delay.c
+[v _delay_us `(v ~T0 @X0 1 ef1`ui ]
+"10
+{
+[; ;delay.c: 9: void delay_us(uint16_t t)
+[; ;delay.c: 10: {
+[e :U _delay_us ]
+"9
+[v _t `ui ~T0 @X0 1 r1 ]
+"10
+[f ]
+"11
+[v _i `ui ~T0 @X0 1 a ]
+"12
+[v _j `ui ~T0 @X0 1 a ]
+[; ;delay.c: 11: uint16_t i;
+[; ;delay.c: 12: uint16_t j;
+[; ;delay.c: 14: for(i=0; i<t; i++)
+"14
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 5  ]
+"15
+[e :U 2 ]
+[; ;delay.c: 15: for(j=0; j<8; j++);
+{
+[e = _j -> -> 0 `i `ui ]
+[e $ < _j -> -> 8 `i `ui 6  ]
+[e $U 7  ]
+[e :U 6 ]
+[e ++ _j -> -> 1 `i `ui ]
+[e $ < _j -> -> 8 `i `ui 6  ]
+[e :U 7 ]
+}
+"14
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 5 ]
+[e $ < _i _t 2  ]
+[e :U 3 ]
+"15
+}
+[; ;delay.c: 16: }
+"16
+[e :UE 1 ]
+}
